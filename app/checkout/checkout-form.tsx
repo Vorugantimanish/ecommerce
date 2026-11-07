@@ -75,7 +75,7 @@ export default function CheckoutForm() {
           {cart.lines.map((l) => (
             <li key={l.key} className="flex items-center gap-4 py-3">
               <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white">
-                <Image src={imageUrl(l.product.images[0])} alt={l.product.name} fill sizes="64px" className="object-cover" />
+                <Image src={imageUrl(l.product.images[0])} alt={l.product.name} fill sizes="64px" className="object-contain p-1.5" />
                 <span className="absolute -top-0 -right-0 grid h-5 min-w-5 place-items-center rounded-full bg-black px-1 text-[10px] font-bold text-white">
                   {l.quantity}
                 </span>

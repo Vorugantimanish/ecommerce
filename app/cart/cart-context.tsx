@@ -5,7 +5,7 @@ import { type CartLine, MAX_QUANTITY, type PricedLine, itemCount, lineKey, price
 import { type Totals, computeTotals, evaluateDiscount } from "@/lib/discounts";
 import { applyDiscountCode } from "./actions";
 
-const STORAGE_KEY = "nexora_cart_v1";
+const STORAGE_KEY = "manora_cart_v1";
 
 type AppliedDiscount = { code: string; label: string; amount: number };
 

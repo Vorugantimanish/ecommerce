@@ -18,11 +18,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nexora — Redefining Everyday Tech",
-    template: "%s | Nexora",
+    default: "Manora — Redefining Everyday Tech",
+    template: "%s | Manora",
   },
   description:
-    "Nexora is your destination for modern electronics: smartphones, audio, gaming, TVs and smart devices.",
+    "Manora is your destination for modern electronics: smartphones, audio, gaming, TVs and smart devices.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

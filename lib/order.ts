@@ -1,6 +1,6 @@
 import type { Totals } from "./discounts";
 
-export const ORDER_COOKIE = "nexora_last_order";
+export const ORDER_COOKIE = "manora_last_order";
 
 export type Order = {
   id: string;

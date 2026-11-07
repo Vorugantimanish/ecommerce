@@ -15,11 +15,15 @@ export default function ProductDetail({ product }: { product: Product }) {
   const [option, setOption] = useState<number | null>(product.options?.length ? 0 : null);
   const [quantity, setQuantity] = useState(1);
 
-  // Homepage cards link to a specific tier (?option=1). Read it after mount so the page stays static.
+  // Product cards link to the tier and colour the shopper picked (?option=1&color=2).
+  // Read after mount so the page itself stays static.
   useEffect(() => {
-    const requested = Number(new URLSearchParams(window.location.search).get("option"));
+    const params = new URLSearchParams(window.location.search);
+    const requested = Number(params.get("option"));
     if (product.options?.[requested]) setOption(requested);
-  }, [product.options]);
+    const requestedColor = Number(params.get("color"));
+    if (Number.isInteger(requestedColor) && product.colors[requestedColor]) setColor(requestedColor);
+  }, [product.options, product.colors]);
 
   const { price, compareAt } = variantPrice(product, option);
 
@@ -33,7 +37,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             alt={product.name}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="object-contain p-10 sm:p-16"
             loading="eager"
             fetchPriority="high"
           />
@@ -50,7 +54,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 aria-label={`Show image ${i + 1}`}
                 className={`relative h-20 w-20 overflow-hidden rounded-xl bg-card ring-2 transition ${i === image ? "ring-black" : "ring-transparent hover:ring-neutral-300"}`}
               >
-                <Image src={imageUrl(src)} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={imageUrl(src)} alt="" fill sizes="80px" className="object-contain p-2" />
               </button>
             ))}
           </div>

@@ -15,7 +15,24 @@ export async function generateMetadata({ params }: PageProps<"/category/[slug]">
   return category ? { title: category.name, description: category.description } : { title: "Category not found" };
 }
 
-export default async function CategoryPage({ params, searchParams }: PageProps<"/category/[slug]">) {
+/** Reading `params` happens inside <Suspense> so navigations show the placeholder instantly. */
+export default function CategoryPage({ params, searchParams }: PageProps<"/category/[slug]">) {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8" aria-busy="true">
+          <div className="mb-6 h-3 w-48 animate-pulse rounded bg-card" />
+          <div className="mb-10 h-48 animate-pulse rounded-3xl bg-card" />
+          <GridSkeleton count={4} />
+        </div>
+      }
+    >
+      <CategoryContent params={params} searchParams={searchParams} />
+    </Suspense>
+  );
+}
+
+async function CategoryContent({ params, searchParams }: Pick<PageProps<"/category/[slug]">, "params" | "searchParams">) {
   const category = getCategory((await params).slug);
   if (!category) notFound();
 

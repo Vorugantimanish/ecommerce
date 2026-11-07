@@ -1,5 +1,5 @@
 /**
- * The Nexora catalog. Everything the store sells lives here: the homepage, listings, search,
+ * The Manora catalog. Everything the store sells lives here: the homepage, listings, search,
  * product pages, the cart and checkout all read from this one source, and the server
  * re-prices every order from it, so a price edited in the browser never reaches an order.
  * Prices are integer cents.
@@ -59,7 +59,7 @@ export const products: Product[] = [
     tagline: "The festive-season flagship.",
     description:
       "Experience cutting-edge performance, a stunning design and powerful new features. iPhone 17 pairs an all-day battery with a pro-grade camera system and a brilliant edge-to-edge display.",
-    images: ["na-iphone17", "tt-iphone17-a", "banner-iphone17"],
+    images: ["products/iphone-17.png"],
     colors: [black, blue, teal],
     optionName: "Storage",
     options: [
@@ -83,7 +83,7 @@ export const products: Product[] = [
     tagline: "Fast and smooth, at a fair price.",
     description:
       "OnePlus 12 Pro brings a silky 120 Hz display, Hasselblad-tuned cameras and 100 W charging that fills the battery before your coffee cools.",
-    images: ["na-oneplus12", "tt-oneplus12"],
+    images: ["products/oneplus-12-pro.png"],
     colors: [grey, blue, teal],
     optionName: "Storage",
     options: [
@@ -106,7 +106,7 @@ export const products: Product[] = [
     tagline: "Bigger screen, bigger battery.",
     description:
       "iPhone 16 Plus gives you a large 6.7-inch display and the longest battery life in its class, with a capable dual camera for everyday moments.",
-    images: ["na-iphone16plus", "tt-iphone17-b"],
+    images: ["products/iphone-16-plus.png"],
     colors: [teal, blue, black],
     price: 69999,
     compareAt: 79999,
@@ -124,7 +124,7 @@ export const products: Product[] = [
     tagline: "Built-in S Pen. Titanium strong.",
     description:
       "Galaxy S25 Ultra combines a 200 MP camera, a built-in S Pen and a titanium frame with Galaxy AI features that help you write, translate and edit faster.",
-    images: ["na-galaxy", "tt-s25ultra"],
+    images: ["products/galaxy-s25-ultra.png"],
     colors: [black, grey, blue],
     optionName: "Storage",
     options: [
@@ -147,7 +147,7 @@ export const products: Product[] = [
     tagline: "Pro cameras, titanium design.",
     description:
       "iPhone 15 Pro Max features a titanium design, a 5x telephoto camera and the Action button, powered by the A17 Pro chip.",
-    images: ["tt-iphone15pm", "tt-iphone17-a"],
+    images: ["products/iphone-15-pro-max.png"],
     colors: [graphite, white, blue],
     price: 89999,
     features: ["5x telephoto zoom", "Titanium design", "Action button", "A17 Pro chip"],
@@ -164,7 +164,7 @@ export const products: Product[] = [
     tagline: "The fan favourite, refreshed.",
     description:
       "Galaxy S24 FE brings flagship features like a 50 MP camera and Galaxy AI to a more affordable price.",
-    images: ["tt-s24fe", "na-galaxy"],
+    images: ["products/galaxy-s24-fe.png"],
     colors: [graphite, blue, teal],
     price: 49999,
     features: ["6.7-inch 120 Hz display", "50 MP triple camera", "Galaxy AI", "IP68 water resistance"],
@@ -181,7 +181,7 @@ export const products: Product[] = [
     tagline: "Innovation in your hands.",
     description:
       "Experience futuristic multitasking, an ultra-smooth foldable display and cutting-edge performance with the new Galaxy Z Fold 7.",
-    images: ["banner-fold", "na-galaxy"],
+    images: ["products/galaxy-z-fold-7.png"],
     colors: [{ name: "Slate Blue", hex: "#5b7f9e" }, black, grey],
     optionName: "Storage",
     options: [
@@ -204,8 +204,8 @@ export const products: Product[] = [
     category: "smartphones",
     tagline: "Our own flagship, edge to edge.",
     description:
-      "The Nexora HyperView puts a bezel-less display, a clean Android experience and three years of updates in a lightweight, comfortable body.",
-    images: ["deal-phone"],
+      "The Manora HyperView puts a bezel-less display, a clean Android experience and three years of updates in a lightweight, comfortable body.",
+    images: ["products/hyperview-smartphone.png"],
     colors: [black, white],
     price: 79999,
     compareAt: 89999,
@@ -223,7 +223,7 @@ export const products: Product[] = [
     tagline: "Pocket-sized sound perfection.",
     description:
       "AirBeats Pro Buds deliver rich, balanced sound with adaptive noise cancellation, transparency mode and up to 30 hours of listening with the case.",
-    images: ["cat-buds", "pick-airbeats", "pick-earbuds-hand"],
+    images: ["products/airbeats-pro-buds.png", "products/airbeats-pro-buds-b.png"],
     colors: [white, black],
     price: 14999,
     compareAt: 19999,
@@ -241,8 +241,8 @@ export const products: Product[] = [
     category: "audio",
     tagline: "360° sound for any room.",
     description:
-      "Cylinder Audio Core fills a room with 360° sound, works with your voice assistant and groups with other Nexora speakers for whole-home audio.",
-    images: ["cat-speaker", "pick-speaker"],
+      "Cylinder Audio Core fills a room with 360° sound, works with your voice assistant and groups with other Manora speakers for whole-home audio.",
+    images: ["products/cylinder-audio-core.png"],
     colors: [grey, white, black],
     price: 29999,
     features: ["360° sound", "Voice assistant built in", "Multi-room grouping", "Wi-Fi and Bluetooth"],
@@ -253,13 +253,13 @@ export const products: Product[] = [
     createdAt: "2026-08-01",
   },
   {
-    slug: "nexora-studio-anc",
-    name: "Nexora Studio ANC",
+    slug: "manora-studio-anc",
+    name: "Manora Studio ANC",
     category: "audio",
     tagline: "Next-gen noise cancellation.",
     description:
-      "Nexora Studio ANC headphones combine plush memory-foam cushions, studio-tuned drivers and next-gen noise cancellation for focus anywhere.",
-    images: ["hero-headphones", "promo-celebration"],
+      "Manora Studio ANC headphones combine plush memory-foam cushions, studio-tuned drivers and next-gen noise cancellation for focus anywhere.",
+    images: ["products/manora-studio-anc.png"],
     colors: [cream, black, blue],
     price: 34999,
     compareAt: 44999,
@@ -278,7 +278,7 @@ export const products: Product[] = [
     tagline: "Deep bass, all-day comfort.",
     description:
       "SonicWave over-ear headphones deliver deep, punchy bass and crisp highs, with a foldable design that travels well.",
-    images: ["deal-headphones", "promo-anc"],
+    images: ["products/sonicwave-headphones.png"],
     colors: [black, graphite],
     price: 79999,
     compareAt: 99999,
@@ -295,8 +295,8 @@ export const products: Product[] = [
     category: "tv-home-theater",
     tagline: "Cinema sound without the clutter.",
     description:
-      "The Q-Series Soundbar delivers Dolby Atmos surround with a wireless subwoofer, and pairs automatically with Nexora TVs.",
-    images: ["lu-soundbar"],
+      "The Q-Series Soundbar delivers Dolby Atmos surround with a wireless subwoofer, and pairs automatically with Manora TVs.",
+    images: ["products/q-series-soundbar.png"],
     colors: [black],
     price: 39999,
     compareAt: 49999,
@@ -314,7 +314,7 @@ export const products: Product[] = [
     tagline: "Every detail, in 8K.",
     description:
       "Neo QLED 8K uses Quantum Mini LEDs and AI upscaling to bring breathtaking contrast and detail to everything you watch.",
-    images: ["lu-qled"],
+    images: ["products/neo-qled-8k.png"],
     colors: [black],
     optionName: "Size",
     options: [
@@ -331,12 +331,12 @@ export const products: Product[] = [
   },
   {
     slug: "smart-tv",
-    name: "Nexora Smart TV",
+    name: "Manora Smart TV",
     category: "tv-home-theater",
     tagline: "Unmatched visual clarity.",
     description:
-      "Nexora Smart TV delivers crisp, vibrant 4K visuals and fast refresh rates, with all your streaming apps built in.",
-    images: ["lu-smarttv", "banner-tv"],
+      "Manora Smart TV delivers crisp, vibrant 4K visuals and fast refresh rates, with all your streaming apps built in.",
+    images: ["products/smart-tv.png"],
     colors: [black],
     optionName: "Size",
     options: [
@@ -359,7 +359,7 @@ export const products: Product[] = [
     tagline: "A monitor that's also a TV.",
     description:
       "Smart Monitor M7 is a 32-inch 4K display with built-in streaming and remote-desktop apps, so it works as a monitor, a TV and a workspace.",
-    images: ["lu-monitor"],
+    images: ["products/smart-monitor-m7.png"],
     colors: [white, black],
     price: 44999,
     features: ["32-inch 4K UHD", "Built-in streaming apps", "USB-C 65 W", "Remote access to PC"],
@@ -376,7 +376,7 @@ export const products: Product[] = [
     tagline: "Power that fits in a backpack.",
     description:
       "FusionCore is a thin, light laptop with a vivid display, a fast processor and a battery that lasts the whole working day.",
-    images: ["deal-laptop"],
+    images: ["products/fusioncore-laptop.png"],
     colors: [graphite, grey],
     optionName: "Memory",
     options: [
@@ -393,13 +393,13 @@ export const products: Product[] = [
     createdAt: "2026-07-30",
   },
   {
-    slug: "nexora-tab-pro",
-    name: "Nexora Tab Pro",
+    slug: "manora-tab-pro",
+    name: "Manora Tab Pro",
     category: "computers-tablets",
     tagline: "Sketch, stream and work.",
     description:
-      "Nexora Tab Pro pairs a bright 11-inch display with stylus support, quad speakers and a battery built for long flights.",
-    images: ["pick-tablet"],
+      "Manora Tab Pro pairs a bright 11-inch display with stylus support, quad speakers and a battery built for long flights.",
+    images: ["products/manora-tab-pro.png"],
     colors: [graphite, grey],
     optionName: "Storage",
     options: [
@@ -421,7 +421,7 @@ export const products: Product[] = [
     tagline: "Precision in every press.",
     description:
       "ShadowPlay GamePad offers hall-effect sticks, remappable back buttons and low-latency wireless that works with PC, console and mobile.",
-    images: ["cat-gamepad", "pick-controller"],
+    images: ["products/shadowplay-gamepad.png", "products/shadowplay-gamepad-b.png"],
     colors: [black, white, { name: "Neon", hex: "#8c6cf2" }],
     price: 9999,
     compareAt: 12999,
@@ -439,12 +439,12 @@ export const products: Product[] = [
     category: "cameras",
     tagline: "Creator-grade 4K, simplified.",
     description:
-      "NeoZoom 4K is a compact camera kit with interchangeable lenses, 4K60 video and fast autofocus, ideal for creators and streamers.",
-    images: ["cat-lens"],
-    colors: [black],
+      "NeoZoom 4K is a compact smart camera with a pan-and-tilt lens, sharp 4K video and AI auto-framing, ideal for streaming, video calls and keeping an eye on home.",
+    images: ["products/neozoom-4k-lens.png"],
+    colors: [white, black],
     price: 14999,
-    features: ["4K60 video", "Fast hybrid autofocus", "Interchangeable lenses", "Clean HDMI out"],
-    specs: [["Video", "4K at 60 fps"], ["Sensor", "1-inch"], ["Mount", "Interchangeable"], ["Ports", "USB-C, micro-HDMI"]],
+    features: ["4K video", "360° pan and tilt", "AI auto-framing", "Night vision"],
+    specs: [["Video", "4K at 30 fps"], ["Field of view", "360° pan, 110° tilt"], ["Audio", "Dual noise-cancelling mics"], ["Connectivity", "Wi-Fi 6, USB-C"]],
     rating: 4.4,
     reviewCount: 211,
     inStock: true,
@@ -457,7 +457,7 @@ export const products: Product[] = [
     tagline: "Step inside your games.",
     description:
       "Vision VR is a standalone headset with high-resolution displays, hand tracking and a library of games and fitness apps, no PC required.",
-    images: ["pick-vr"],
+    images: ["products/vision-vr-headset.png"],
     colors: [white],
     optionName: "Storage",
     options: [
@@ -479,7 +479,7 @@ export const products: Product[] = [
     tagline: "Health and fitness on your wrist.",
     description:
       "Pulse tracks heart rate, sleep and over 100 workouts, with GPS, contactless payments and a battery that lasts a full week.",
-    images: ["pick-watch"],
+    images: ["products/pulse-smartwatch.png", "products/pulse-smartwatch-b.png"],
     colors: [white, black],
     price: 24999,
     compareAt: 29999,
@@ -506,8 +506,9 @@ export function productsInCategory(slug: string): Product[] {
   return products.filter((p) => p.category === slug);
 }
 
+/** "products/x.png" → "/products/x.png" (cut-outs); a bare name → "/images/<name>.jpg" (lifestyle photos). */
 export function imageUrl(name: string): string {
-  return `/images/${name}.jpg`;
+  return name.includes(".") ? `/${name}` : `/images/${name}.jpg`;
 }
 
 /** Price of one specific variant: an option's own price, else the product price. */

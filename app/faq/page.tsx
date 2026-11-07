@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/app/components/ui";
 
-export const metadata: Metadata = { title: "FAQ", description: "Answers to common questions about shopping at Nexora." };
+export const metadata: Metadata = { title: "FAQ", description: "Answers to common questions about shopping at Manora." };
 
 const faqs: { section: string; items: [string, string][] }[] = [
   {
     section: "Orders & Payment",
     items: [
       ["Which payment methods do you accept?", "We accept all major credit and debit cards, Apple Pay and Google Pay."],
-      ["How do I use a discount code?", "Open your cart and enter the code in the “Discount code” field, then select Apply. Try NEXORA10 for 10% off your order."],
+      ["How do I use a discount code?", "Open your cart and enter the code in the “Discount code” field, then select Apply. Try MANORA10 for 10% off your order."],
       ["Can I change or cancel my order?", "Orders can be changed or cancelled within one hour of purchase. Contact us as soon as possible and we'll do our best to help."],
     ],
   },
@@ -24,7 +24,7 @@ const faqs: { section: string; items: [string, string][] }[] = [
     section: "Returns & Warranty",
     items: [
       ["What is your return policy?", "You can return any item within 30 days of delivery for a full refund, as long as it's in its original condition."],
-      ["Do products come with a warranty?", "Every device we sell includes a 2-year Nexora warranty covering manufacturing defects."],
+      ["Do products come with a warranty?", "Every device we sell includes a 2-year Manora warranty covering manufacturing defects."],
     ],
   },
 ];

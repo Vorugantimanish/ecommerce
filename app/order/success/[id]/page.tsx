@@ -51,7 +51,7 @@ async function OrderDetails({ params }: { params: PageProps<"/order/success/[id]
             {order.items.map((item) => (
               <li key={`${item.slug}-${item.variant}`} className="flex items-center gap-4 py-3">
                 <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white">
-                  <Image src={imageUrl(item.image)} alt={item.name} fill sizes="64px" className="object-cover" />
+                  <Image src={imageUrl(item.image)} alt={item.name} fill sizes="64px" className="object-contain p-1.5" />
                 </span>
                 <span className="min-w-0 flex-1">
                   <Link href={`/product/${item.slug}`} className="block truncate text-sm font-medium hover:underline">

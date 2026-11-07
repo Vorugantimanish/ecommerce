@@ -2,18 +2,11 @@
 
 import { useRouter } from "next/navigation";
 
-export default function SortSelect({
-  value,
-  options,
-}: {
-  value: string;
-  label: string;
-  options: { value: string; label: string; href: string }[];
-}) {
+export default function SortSelect({ value, options }: { value: string; options: { value: string; label: string; href: string }[] }) {
   const router = useRouter();
   return (
     <label className="flex items-center gap-2">
-      <span className="sr-only">Sort by</span>
+      <span className="text-neutral-500">Sort by</span>
       <select
         value={value}
         onChange={(e) => {

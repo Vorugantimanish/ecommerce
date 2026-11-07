@@ -81,7 +81,7 @@ export default function CartSidebar() {
                     onClick={close}
                     className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-neutral-100"
                   >
-                    <Image src={imageUrl(line.product.images[0])} alt={line.product.name} fill sizes="80px" className="object-cover" />
+                    <Image src={imageUrl(line.product.images[0])} alt={line.product.name} fill sizes="80px" className="object-contain p-1.5" />
                   </Link>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex items-start justify-between gap-2">

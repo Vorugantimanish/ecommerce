@@ -4,7 +4,7 @@ import { Breadcrumbs, ShopButton } from "@/app/components/ui";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Nexora brings cutting-edge electronics and honest service together.",
+  description: "Manora brings cutting-edge electronics and honest service together.",
 };
 
 const stats = [
@@ -26,13 +26,13 @@ export default function AboutPage() {
             your everyday
           </h1>
           <p className="mt-6 max-w-md text-neutral-600">
-            Nexora started with a simple idea: buying great electronics should feel as good as using them. We hand-pick
+            Manora started with a simple idea: buying great electronics should feel as good as using them. We hand-pick
             every product, test it ourselves, and back it with fast delivery, easy returns and real people on support.
           </p>
           <ShopButton className="mt-8 px-7 py-3 text-sm" />
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-card">
-          <Image src="/images/banner-tv.jpg" alt="A living room with a Nexora TV" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+          <Image src="/images/banner-tv.jpg" alt="A living room with a Manora TV" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
         </div>
       </section>
 

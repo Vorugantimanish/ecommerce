@@ -16,7 +16,7 @@ type Coupon = {
 };
 
 const coupons: Coupon[] = [
-  { code: "NEXORA10", type: "percentage", value: 10, description: "10% off your order" },
+  { code: "MANORA10", type: "percentage", value: 10, description: "10% off your order" },
   { code: "WELCOME20", type: "percentage", value: 20, minItems: 2, description: "20% off orders of 2+ items" },
   { code: "SAVE50", type: "fixed", value: 5000, minSubtotal: 50000, description: "$50 off orders over $500" },
 ];

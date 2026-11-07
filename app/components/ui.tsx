@@ -17,7 +17,7 @@ export function Logo({ className = "" }: { className?: string }) {
         ))}
         <circle cx="16" cy="16" r="3" fill="white" />
       </svg>
-      <span className="text-xl font-semibold tracking-tight">Nexora</span>
+      <span className="text-xl font-semibold tracking-tight">Manora</span>
     </Link>
   );
 }

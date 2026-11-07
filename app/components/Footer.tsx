@@ -61,7 +61,7 @@ export default function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-sm text-sm text-neutral-500">
-            Nexora is your go-to destination for modern electronics. We bring together cutting-edge
+            Manora is your go-to destination for modern electronics. We bring together cutting-edge
             design and premium quality to power your everyday life.
           </p>
           <h4 className="mt-8 font-semibold">Subscribe to Newsletter</h4>
@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-neutral-100 px-4 py-6 sm:flex-row sm:px-8">
-        <p className="text-xs text-neutral-500">Copyright © 2026 Nexora. All Rights Reserved.</p>
+        <p className="text-xs text-neutral-500">Copyright © 2026 Manora. All Rights Reserved.</p>
         <div className="flex gap-2">
           {socials.map((s) => (
             <a key={s.label} href="#" aria-label={s.label} className="grid h-8 w-8 place-items-center rounded-full bg-black text-white hover:opacity-80">

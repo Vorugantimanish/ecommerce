@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/app/components/ui";
 import ContactForm from "./contact-form";
 
-export const metadata: Metadata = { title: "Contact Us", description: "Get in touch with the Nexora team." };
+export const metadata: Metadata = { title: "Contact Us", description: "Get in touch with the Manora team." };
 
 export default function ContactPage() {
   return (
@@ -15,7 +15,7 @@ export default function ContactPage() {
           <dl className="mt-10 space-y-6 text-sm">
             <div>
               <dt className="font-semibold">Email</dt>
-              <dd className="text-neutral-600">support@nexora.store</dd>
+              <dd className="text-neutral-600">support@manora.store</dd>
             </div>
             <div>
               <dt className="font-semibold">Phone</dt>

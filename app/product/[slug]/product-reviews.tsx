@@ -5,7 +5,7 @@ import { Stars } from "@/app/components/ui";
 import type { Review } from "@/lib/catalog";
 import { submitReview } from "./review-action";
 
-const key = (slug: string) => `nexora_reviews_${slug}`;
+const key = (slug: string) => `manora_reviews_${slug}`;
 
 export default function ProductReviews({ slug, seeded }: { slug: string; seeded: Review[] }) {
   const [mine, setMine] = useState<Review[]>([]);

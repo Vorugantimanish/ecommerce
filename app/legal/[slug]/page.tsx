@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Breadcrumbs } from "@/app/components/ui";
 import { legalSlugs } from "@/lib/legal-slugs";
 
@@ -7,7 +8,7 @@ const pages: Record<(typeof legalSlugs)[number], { title: string; sections: [str
   terms: {
     title: "Terms of Use",
     sections: [
-      ["Using this site", "By using the Nexora website you agree to these terms. Please read them carefully before placing an order."],
+      ["Using this site", "By using the Manora website you agree to these terms. Please read them carefully before placing an order."],
       ["Orders", "All orders are subject to availability and confirmation of the order price. We may refuse or cancel an order at our discretion, in which case any payment is refunded in full."],
       ["Pricing", "Prices are shown in US dollars and include applicable discounts. Tax is calculated at checkout."],
     ],
@@ -23,7 +24,7 @@ const pages: Record<(typeof legalSlugs)[number], { title: string; sections: [str
   security: {
     title: "Security",
     sections: [
-      ["Secure connections", "Every page on Nexora is served over HTTPS so your information is encrypted in transit."],
+      ["Secure connections", "Every page on Manora is served over HTTPS so your information is encrypted in transit."],
       ["Payments", "Card details are handled by our payment provider and are never stored on our servers."],
     ],
   },
@@ -62,7 +63,24 @@ export async function generateMetadata({ params }: PageProps<"/legal/[slug]">): 
   return { title: page?.title ?? "Not found" };
 }
 
-export default async function LegalPage({ params }: PageProps<"/legal/[slug]">) {
+/** Reading `params` happens inside <Suspense> so navigations show the placeholder instantly. */
+export default function LegalPage({ params }: PageProps<"/legal/[slug]">) {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-3xl space-y-4 px-4 py-10 sm:px-8" aria-busy="true">
+          <div className="h-3 w-32 animate-pulse rounded bg-card" />
+          <div className="h-12 w-2/3 animate-pulse rounded-xl bg-card" />
+          <div className="h-40 animate-pulse rounded-xl bg-card" />
+        </div>
+      }
+    >
+      <LegalContent params={params} />
+    </Suspense>
+  );
+}
+
+async function LegalContent({ params }: { params: PageProps<"/legal/[slug]">["params"] }) {
   const page = pageFor((await params).slug);
   if (!page) notFound();
   return (

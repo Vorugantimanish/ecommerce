@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProductCard from "@/components/product-card";
+import { getProduct } from "@/lib/catalog";
 import NewArrivals from "./components/NewArrivals";
-import { ArrowBadge, ColorDots, SectionHeader, ShopButton } from "./components/ui";
+import { ArrowBadge, SectionHeader, ShopButton } from "./components/ui";
 
 const img = (name: string) => `/images/${name}.jpg`;
 
@@ -35,10 +37,10 @@ function Hero() {
           Everyday Tech
         </h1>
         <p className="mt-6 max-w-md text-sm text-neutral-500">
-          Experience next-level comfort, design, and innovation with Nexora&apos;s modern
+          Experience next-level comfort, design, and innovation with Manora&apos;s modern
           electronics—made to elevate your lifestyle.
         </p>
-        <div className="mt-8 flex items-center gap-6">
+        <div className="mt-8 flex flex-col items-start gap-6">
           <ShopButton className="px-7 py-3 text-sm" />
           <div className="flex items-center gap-3">
             <div className="flex -space-x-3">
@@ -56,22 +58,24 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto aspect-square w-full max-w-[520px]">
-        <span className="absolute top-2 left-6 h-14 w-14 rounded-full bg-[#efeee8]" />
-        <span className="absolute top-14 left-24 h-5 w-5 rounded-full border border-neutral-400" />
-        <span className="absolute right-4 bottom-16 h-12 w-12 rounded-full bg-[#efeee8]" />
-        <span className="absolute right-20 bottom-6 h-3 w-3 rounded-full bg-neutral-300" />
-        <div className="absolute inset-10 overflow-hidden rounded-full bg-[#f1f0ec]">
-          <Image
-            src={img("hero-headphones")}
-            alt="Cream wireless headphones"
-            fill
-            sizes="(min-width: 768px) 460px, 90vw"
-            className="object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </div>
+      {/* The whole group (circle + photo) fades out over its bottom fifth, so the cropped
+          shoulders dissolve into the page instead of ending on a hard line. */}
+      <div className="relative mx-auto w-full max-w-[660px] [mask-image:linear-gradient(to_bottom,black_78%,transparent)]">
+        {/* Muted semicircle behind the model, arc running shoulder → ears → shoulder. */}
+        <span
+          aria-hidden
+          className="absolute bottom-0 left-1/2 aspect-[2/1] w-[84%] -translate-x-1/2 rounded-t-full bg-[#f2f0ec]"
+        />
+        <Image
+          src="/images/hero-model.png"
+          alt="Woman wearing cream over-ear headphones"
+          width={600}
+          height={400}
+          sizes="(min-width: 768px) 660px, 100vw"
+          className="relative h-auto w-full"
+          loading="eager"
+          fetchPriority="high"
+        />
       </div>
     </section>
   );
@@ -136,7 +140,7 @@ function BestPicks() {
           </div>
         </Tile>
         <Tile src="pick-vr" alt="VR headset" badge="cube" className="h-[240px] lg:row-span-2 lg:h-auto" href="/product/vision-vr-headset" />
-        <Tile src="pick-tablet" alt="Tablet" badge="cube" className="h-[240px]" href="/product/nexora-tab-pro" />
+        <Tile src="pick-tablet" alt="Tablet" badge="cube" className="h-[240px]" href="/product/manora-tab-pro" />
         <Tile src="pick-speaker" alt="Smart cylinder speaker" className="h-[240px] lg:col-span-2" href="/product/cylinder-audio-core" />
         <Tile src="pick-watch" alt="Smart watches" badge="cube" className="h-[240px]" href="/product/pulse-smartwatch" />
       </div>
@@ -149,20 +153,30 @@ function BestPicks() {
 function FoldBanner() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
-      <div className="relative grid overflow-hidden rounded-3xl bg-[#5b7f9e] text-white md:grid-cols-2">
-        <span className="pointer-events-none absolute -bottom-10 -left-4 text-[9rem] leading-none font-black text-white/10 select-none sm:text-[13rem]">
+      {/* The photo's own navy backdrop (#16213f) fills the banner; on desktop the text sits over
+          its empty left side, on phones the text stacks above the photo. */}
+      <div className="relative flex flex-col-reverse overflow-hidden rounded-3xl bg-[#16213f] text-white md:block md:min-h-[460px]">
+        <div className="relative aspect-[996/600] md:absolute md:inset-0 md:aspect-auto">
+          <Image
+            src={img("banner-fold-7")}
+            alt="Galaxy Z Fold 7 standing half-open, playing a video"
+            fill
+            sizes="(min-width: 1280px) 1216px, 100vw"
+            className="object-cover object-right"
+          />
+          {/* phones: blend the photo's lighter top edge into the text block above it */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#16213f] to-transparent md:hidden" />
+        </div>
+        <span className="pointer-events-none absolute -bottom-10 -left-4 hidden text-[13rem] leading-none font-black text-white/[0.06] select-none md:block">
           Galaxy
         </span>
-        <div className="relative z-10 flex flex-col justify-center p-8 sm:p-12">
+        <div className="relative z-10 flex flex-col justify-center p-8 sm:p-12 md:min-h-[460px] md:w-1/2">
           <h2 className="text-4xl tracking-tight sm:text-5xl">Galaxy Z Fold 7</h2>
           <p className="mt-4 max-w-sm text-sm text-white/75">
             Experience futuristic multitasking, ultra-smooth foldable display, and cutting-edge
             performance with the new Galaxy Z Fold 7 — innovation in your hands.
           </p>
           <ShopButton light className="mt-8 self-start" href="/product/galaxy-z-fold-7" />
-        </div>
-        <div className="relative min-h-[300px] md:min-h-[420px]">
-          <Image src={img("banner-fold")} alt="Foldable smartphones" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover mix-blend-luminosity opacity-90" />
         </div>
       </div>
     </section>
@@ -205,7 +219,7 @@ function ShopByCategory() {
 function Promos() {
   const promos = [
     { title: ["Sound Of", "Pure", "Celebration"], img: "promo-celebration", bg: "bg-[#ebe7dc]", href: "/category/audio" },
-    { title: ["Next-Gen", "Noise", "Cancellation"], img: "promo-anc", bg: "bg-[#f3f3f3]", href: "/product/nexora-studio-anc" },
+    { title: ["Next-Gen", "Noise", "Cancellation"], img: "promo-anc", bg: "bg-[#f3f3f3]", href: "/product/manora-studio-anc" },
   ];
   return (
     <section className="mx-auto grid max-w-7xl gap-4 px-4 py-12 sm:px-8 md:grid-cols-2">
@@ -233,35 +247,32 @@ function Promos() {
 
 /* ---------------- Top Trending ---------------- */
 
-const trending = [
-  { name: "iPhone 17", price: 749.99, img: "tt-iphone17-a", colors: ["#111111", "#a9c4e4", "#b9e0cf"], href: "/product/iphone-17?option=1" },
-  { name: "OnePlus 12 Pro", price: 269.99, img: "tt-oneplus12", colors: ["#e8e8e8", "#a9c4e4", "#b9e0cf"], href: "/product/oneplus-12-pro?option=1" },
-  { name: "iPhone 17", price: 649.99, img: "tt-iphone17-b", colors: ["#111111", "#a9c4e4", "#b9e0cf"], href: "/product/iphone-17?option=0" },
-  { name: "Galaxy S25 Ultra", price: 799.99, img: "tt-s25ultra", colors: ["#9a9a9a", "#a9c4e4", "#b9e0cf"], href: "/product/galaxy-s25-ultra?option=0" },
-  { name: "iPhone 15 Pro Max", price: 899.99, img: "tt-iphone15pm", colors: ["#444444", "#a9c4e4", "#b9e0cf"], href: "/product/iphone-15-pro-max" },
-  { name: "Galaxy S24 FE", price: 499.99, img: "tt-s24fe", colors: ["#333333", "#a9c4e4", "#b9e0cf"], href: "/product/galaxy-s24-fe" },
+/** [slug, featured storage tier] */
+const trending: [string, number?][] = [
+  ["iphone-17", 1],
+  ["oneplus-12-pro", 1],
+  ["galaxy-s25-ultra", 0],
+  ["iphone-15-pro-max"],
+  ["galaxy-s24-fe"],
+  ["hyperview-smartphone"],
 ];
+
+function CardGrid({ items, className }: { items: [string, number?][]; className: string }) {
+  return (
+    <div className={`grid gap-4 ${className}`}>
+      {items.map(([slug, option]) => {
+        const product = getProduct(slug);
+        return product ? <ProductCard key={slug} product={product} option={option} /> : null;
+      })}
+    </div>
+  );
+}
 
 function TopTrending() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
       <SectionHeader title="Top Trending" href="/category/smartphones" />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {trending.map((p) => (
-          <Link href={p.href} key={p.name + p.price} className="flex items-center gap-4 rounded-2xl bg-card p-4 transition hover:shadow-md">
-            <div className="relative aspect-[4/3] flex-1 overflow-hidden rounded-xl bg-white">
-              <Image src={img(p.img)} alt={p.name} fill sizes="(min-width: 1024px) 25vw, 60vw" className="object-cover" />
-            </div>
-            <div className="flex h-full flex-col items-end justify-between gap-4 py-1">
-              <ColorDots colors={p.colors} />
-              <div className="text-right">
-                <h3 className="text-sm font-semibold">{p.name}</h3>
-                <p className="text-lg font-bold">${p.price.toFixed(2)}</p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <CardGrid items={trending} className="sm:grid-cols-2 lg:grid-cols-3" />
     </section>
   );
 }
@@ -352,30 +363,13 @@ function TvBanner() {
 
 /* ---------------- Latest Line-up ---------------- */
 
-const lineup = [
-  { name: "Neo QLED 8K", img: "lu-qled", href: "/product/neo-qled-8k" },
-  { name: "Smart Tv", img: "lu-smarttv", href: "/product/smart-tv" },
-  { name: "Q-Series Soundbar", img: "lu-soundbar", href: "/product/q-series-soundbar" },
-  { name: "Smart Monitor M7", img: "lu-monitor", href: "/product/smart-monitor-m7" },
-];
+const lineup: [string, number?][] = [["neo-qled-8k"], ["smart-tv"], ["q-series-soundbar"], ["smart-monitor-m7"]];
 
 function LatestLineup() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
       <SectionHeader title="Latest Line-up" href="/category/tv-home-theater" />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {lineup.map((p) => (
-          <article key={p.name} className="rounded-2xl bg-card p-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-white">
-              <Image src={img(p.img)} alt={p.name} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" />
-            </div>
-            <div className="mt-4 flex items-center justify-between">
-              <h3 className="font-semibold">{p.name}</h3>
-              <ShopButton href={p.href} />
-            </div>
-          </article>
-        ))}
-      </div>
+      <CardGrid items={lineup} className="sm:grid-cols-2 lg:grid-cols-4" />
     </section>
   );
 }
